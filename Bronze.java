@@ -43,3 +43,57 @@ public class Bronze {
         pw.close();
     }
 }
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
+class ShellGame {
+
+
+
+    private static String[] shells = {"1", "2", "3"};
+
+    public ShellGame() {}
+
+
+    public static void main(String[] args) {
+        int[] scores = {0, 0, 0};
+        String file_path = "";
+        try {
+            File file = new File(file_path);
+            Scanner reader = new Scanner(file);
+
+            while (reader.hasNextLine()) {
+                String[] vars = reader.nextLine().split(" ");
+                int a = Integer.parseInt(vars[0]);
+                int b = Integer.parseInt(vars[1]);
+                int g = Integer.parseInt(vars[2]);
+                int temp = shells[b-1];
+                shells[b-1] = shells[a-1];
+                shells[a-1] = temp;
+                // calc scores wrt each possible loc
+            }
+
+            reader.close();
+        }
+
+        catch (FileNotFoundException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
+
+    }
+
+
+
+
+}
+
+
+
+
+
+
+
+
